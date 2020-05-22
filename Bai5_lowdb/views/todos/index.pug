@@ -1,0 +1,9 @@
+h1 Todos
+a(href="/todos/create") New
+form(action="/todos/search")
+    input(type="text" name = 'keyword' value=keyword) 
+    input(type="submit" value="Search")
+
+ul
+  each val in todos
+    li= val.content
