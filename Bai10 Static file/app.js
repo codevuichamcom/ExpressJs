@@ -14,9 +14,10 @@ app.set('views', './views');
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+app.use(express.static('public'))
 
 app.get('/',function(res, res){
-    res.send('Hello World.');
+    res.render('index');
 });
 
 app.use('/todos',todoRoute);
