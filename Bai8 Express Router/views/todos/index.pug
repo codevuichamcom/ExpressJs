@@ -1,0 +1,14 @@
+h1 Todos
+a(href="/todos/create") New
+form(action="/todos/search")
+    input(type="text" name = 'keyword' value= keyword) 
+    input(type="submit" value="Search")
+
+ul
+  each todo in todos
+    li
+      span= todo.content
+      span &nbsp;
+      a(href="/todos/view/"+todo.id) View
+      span &nbsp;
+      a(href="/todos/"+todo.id+"/delete") Delete
