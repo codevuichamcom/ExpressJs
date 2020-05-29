@@ -3,7 +3,9 @@
     {
       "name": "Hong Quan",
       "phone": "0866823499",
-      "id": "OviZ4S09I"
+      "id": "OviZ4S09I",
+      "email": "quan@gmail.com",
+      "password": "123456"
     },
     {
       "name": "Quan",
