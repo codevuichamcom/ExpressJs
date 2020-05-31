@@ -1,0 +1,35 @@
+extends ../layouts/common.pug
+
+block content
+    h1 
+        span.mr-2 Product
+        
+        form.d-flex.mt-3.ml-auto(action="/users/search" style="width:20rem")
+            input#name.form-control(type='text') 
+            button.btn.btn-primary.ml-2(type="submit") Search
+
+    .container
+         
+        .row
+            each product in products
+                .col-md-3.mb-2
+                        .card(style='height:28rem;')
+                            img.card-img-top(src=product.image style='border-radius:5px')
+                            .card-body
+                                h5.card-title 
+                                    =product.name
+                                p.card-text 
+                                    =product.description
+                                div    
+                                a.btn.btn-primary(href='/cart/add/'+product.id) Go somewhere
+        .paging.d-flex
+            nav.ml-auto(aria-label='...')
+                ul.pagination
+                    
+                    li.page-item
+                    a.page-link(href=(page>1)?'/products?page='+(page-1):'#', tabindex='-1', aria-disabled='true') Previous
+                    each val in numPages
+                        li.page-item
+                        a.page-link(style=(val===page)?"background-color:#007bff;color: white":"" href='/products?page='+val)= val
+                    li.page-item
+                    a.page-link(href=(page<numPages.length)?'/products?page='+(page+1):'#') Next
