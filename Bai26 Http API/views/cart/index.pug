@@ -1,0 +1,28 @@
+extends ../layouts/common.pug
+
+block content
+  h1 
+    span.mr-2 Cart
+    a.btn.btn-primary(href="/users/create") New
+  .d-flex.align-items-center
+    
+    form.d-flex.mt-3.ml-auto(action="/users/search")
+          input#name.form-control(type='text') 
+          button.btn.btn-primary.ml-2(type="submit") Search
+
+  table.table
+    tr
+      th Name
+      th Description
+      th Image
+
+    each product in products
+      tr
+        td=product.name
+        td=product.description
+        td
+            img(src=product.image, width=32)
+        td
+        //-   a.btn.btn-light.mr-2(href="/users/view/"+user.id) View
+
+        //-   a.btn.btn-danger(href="/users/"+user.id+"/delete") Delete
